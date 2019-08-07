@@ -1,0 +1,60 @@
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>"互联网+"项目解读报告</title>
+    {% endif %}
+
+    {% block styles %}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    {% endblock %}
+
+</head>
+<body style="height: 100%; margin: 0">
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{{ url_for('main.index') }}">Internet+</a>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a id="home" href="{{ url_for('main.index') }}#main_pie">Top 20</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+{% block content %}{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/jquery-1.11.2.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/echarts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/china.js') }}"></script>
+{% endblock %}
+
+</body>
+</html>

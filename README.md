@@ -1,6 +1,3 @@
-# Our new PhDs
-
-We craw data from yz.chsi.com
-
-# License
-GPL License
+# Crawler
+This repository is for holding my crawler projects, especially the org data.
+Each folder which name is the url is a single crawler project.

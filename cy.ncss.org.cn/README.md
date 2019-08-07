@@ -1,0 +1,1 @@
+# China Startups Project Visualization## How to run?first  run below to create database:```python app.py init```then run below to crawl the data to database:```python app.py crawl``` last run the server:```python app.py runserver```
